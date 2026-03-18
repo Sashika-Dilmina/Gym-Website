@@ -20,7 +20,7 @@ const trainers = [
 
 const Trainers = () => {
   return (
-    <section id="trainers" className="bg-black text-white py-20 px-6 md:px-16">
+    <section id="trainers" className="bg-black text-white min-h-screen py-20 px-6 md:px-16">
       
       {/* TOP HEADER */}
       <div className="grid md:grid-cols-2 gap-6 items-center">
