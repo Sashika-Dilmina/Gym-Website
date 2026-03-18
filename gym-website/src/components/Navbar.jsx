@@ -20,6 +20,7 @@ const Navbar = () => {
       <h1 className="text-white font-bold">
         FITNESS <span className="text-yellow-500">SPORTS</span>
       </h1>
+      
 
       <ul className="hidden md:flex gap-6 text-white">
         <li>Home</li>
