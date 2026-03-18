@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section id="home" className="scroll-mt-24">
+    <section id="home" className="relative min-h-screen flex items-center">
       {/* Background Image */}
       <img
         src="/assets/images/background.jpg" 
