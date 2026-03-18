@@ -56,7 +56,7 @@ const Services = () => {
         {services.map((item, index) => (
           <div
             key={index}
-            className="bg-gray-900 rounded-xl p-6 hover:bg-gray-800 transition duration-300"
+            className="bg-gray-900 rounded-xl p-6 hover:bg-gray-800 hover:scale-105 transition duration-300"
           >
             {/* ICON */}
             <div className="bg-black w-12 h-12 flex items-center justify-center rounded-lg mb-4 text-yellow-500">
