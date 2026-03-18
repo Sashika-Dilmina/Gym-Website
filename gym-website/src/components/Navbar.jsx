@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -19,13 +20,18 @@ const Navbar = () => {
   };
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 w-full z-50 px-6 md:px-16 py-4 flex justify-between items-center transition-all duration-300 
-      ${scrolled ? "bg-black/80 backdrop-blur-md" : "bg-transparent"}`}
+      ${scrolled 
+        ? "bg-black/90 backdrop-blur-md shadow-lg" 
+        : "bg-transparent"}`}
     >
       <div className="flex items-center gap-3">
         <img
-          src="\assets\icons\logo.jpg"
+          src="/assets/icons/logo.jpg"
           alt="logo"
           className="w-12 h-12 object-contain bg-white p-1 rounded-md"
         />
@@ -33,30 +39,33 @@ const Navbar = () => {
           <h1 className="text-white font-bold text-sm md:text-lg">
             FITNESS <span className="text-yellow-500">SPORTS</span>
           </h1>
-          <p className="text-gray-400 text-xs">
+          <p className="text-gray-400 text-xs uppercase tracking-widest">
             CENTER . EST. 2023
           </p>
         </div>
       </div>
 
-      <ul className="hidden md:flex gap-6 text-white cursor-pointer">
-        <li onClick={() => scrollToSection("home")}>Home</li>
-        <li onClick={() => scrollToSection("about")}>About</li>
-        <li onClick={() => scrollToSection("services")}>Services</li>
-        <li onClick={() => scrollToSection("trainers")}>Trainers</li>
-        <li onClick={() => scrollToSection("plans")}>Plans</li>
-        <li onClick={() => scrollToSection("contact")}>Contact</li>
+      <ul className="hidden md:flex gap-8 text-white font-medium cursor-pointer">
+        {["home", "about", "services", "trainers", "plans", "contact"].map((section) => (
+          <li
+            key={section}
+            onClick={() => scrollToSection(section)}
+            className="hover:text-yellow-500 transition-colors capitalize"
+          >
+            {section}
+          </li>
+        ))}
       </ul>
 
-      <button
-            onClick={() =>
-                document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition"
-            >
-            Join Now
-            </button>
-    </nav>
+      <div className="flex items-center gap-4">
+        <button
+          onClick={() => document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" })}
+          className="bg-yellow-500 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-600 active:scale-95 transition-all shadow-md"
+        >
+          Join Now
+        </button>
+      </div>
+    </motion.nav>
   );
 };
 
