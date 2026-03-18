@@ -2,10 +2,10 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="relative h-screen w-full">
+    <section id="home" className="scroll-mt-24">
       {/* Background Image */}
       <img
-        src="\assets\images\background.jpg" 
+        src="/assets/images/background.jpg" 
         alt="background"
         className="absolute w-full h-full object-cover"
       />
@@ -38,9 +38,14 @@ const Hero = () => {
 
         {/* Buttons */}
         <div className="flex gap-4 mt-8">
-          <button className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
+          <button
+            onClick={() =>
+                document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition"
+            >
             Join Now
-          </button>
+            </button>
 
           <button className="bg-white/10 text-white px-6 py-3 rounded-full font-semibold backdrop-blur hover:bg-white/20 transition">
             Explore Plans
